@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>To jest strona testowa</title>
+    <link rel="stylesheet" a href="{% static 'style.css' %}">
+</head>
+<body>
+<h1>To jest strona testowa</h1>
+<p>{{ text }}</p>
+<td>{{ kwota_brutto }}</td>
+<table border="">
+    <th bgcolor="green">Pierwsze Pole</th>
+    <th bgcolor="green">Drugie pole</th>
+    <th bgcolor="green">Trzecie Pole</th>
+    <th bgcolor="green">Czwarte Pole</th>
+    <th bgcolor="green">Piąte Pole</th>
+    <th bgcolor="green">Szóste Pole</th>
+    <th bgcolor="green">Siódme Pole</th>
+    <th bgcolor="green">Ósme Pole</th>
+{% for i in faktura %}
+<tr>
+    <td>{{ i.nazwa }}</td>
+    <td>{{ i.numer }}</td>
+    <td>{{ i.miejsce }}</td>
+    <td>{{ i.data_wystawienia }}</td>
+    <td>{{ i.kwota_netto }}</td>
+    <td>{{ i.vat }}</td>
+    <td>{{ i.plik }}</td>
+
+</tr>
+
+{% endfor %}
+    <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>{{ suma }}</td>
+    <td></td>
+    <td></td>
+
+</tr>
+</table>
+
+
+
+</body>
+</html>
