@@ -15,5 +15,6 @@ class Faktura(models.Model):
     miejsce = models.CharField(choices=miejsca, max_length=30)
     plik = models.ImageField()
 
+
     def __str__(self):
         return self.nazwa
