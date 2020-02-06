@@ -10,6 +10,7 @@
 </head>
 <body>
 <h1>To jest strona testowa</h1>
+<a href="{% url 'nowa_faktura' %}">Nowa faktura</a>
 <p>{{ text }}</p>
 <td>{{ kwota_brutto }}</td>
 <table border="">
@@ -21,6 +22,7 @@
     <th bgcolor="green">Szóste Pole</th>
     <th bgcolor="green">Siódme Pole</th>
     <th bgcolor="green">Ósme Pole</th>
+    <th bgcolor="green">Dziewiąte Pole</th>
 {% for i in faktura %}
 <tr>
     <td>{{ i.nazwa }}</td>
@@ -30,7 +32,8 @@
     <td>{{ i.kwota_netto }}</td>
     <td>{{ i.vat }}</td>
     <td>{{ i.plik }}</td>
-
+    <td><a href="{% url 'edycja_faktury' i.id %}">Edycja</a></td>
+    <td><a href="{% url 'usuwanie_faktury' i.id %}">Usuń</a> </td>
 </tr>
 
 {% endfor %}

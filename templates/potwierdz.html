@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Czy na pewno chcesz usunąć {{ faktura.nazwa }}?</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Tak</button>
+        <a href="http://127.0.0.1:8000/faktury"><button type="button">Nie</button></a>
+    </form>
+</body>
+</html>

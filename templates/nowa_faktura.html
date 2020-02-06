@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+       <p>Numer:{{ form.numer }}</p>
+       <p>Nazwa:{{ form.nazwa }}</p>
+       <p>Data wystawienia:{{ form.data_wystawienia }}</p>
+       <p>Kwota netto:{{ form.kwota_netto }}</p>
+       <p>VAT:{{ form.vat }}</p>
+       <p>Miejsce:{{ form.miejsce }}</p>
+       <p>Plik faktury:{{ form.plik }}</p>
+        <button type="submit">Dodaj</button>
+    </form>
+</body>
+</html>
