@@ -7,6 +7,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Strona główna</title>
+    <link rel="stylesheet" a href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
     <link rel="stylesheet" a href="{% static 'style.css' %}">
 </head>
 <body>
@@ -38,7 +40,7 @@
     <td bgcolor="aqua">{{ i.vat|mul:100 |add:0 }}%</td>
     <td bgcolor="aqua">{{ i.vat|mul:i.kwota_netto }}zł</td>
     <td bgcolor="aqua">{{ i.vat|mul:i.kwota_netto |addition:i.kwota_netto}}zł</td>
-    <td bgcolor="aqua">{{ i.plik }}</td>
+    <td bgcolor="aqua"><a href="{{ i.plik.url }}">{{ i.plik }}</a></td>
     <td bgcolor="orange"><a href="{% url 'edycja_faktury' i.id %}">Edycja |</a><a href="{% url 'usuwanie_faktury' i.id %}"> Usuń</a> </td>
 </tr>
 
@@ -59,8 +61,7 @@
 </tr>
 </table><br>
 
-<button><a href="{% url 'logout' %}">Wyloguj się</a></button>
-
+<a href="{% url 'logout' %}"><input type="submit" value="Wyloguj" /></a>
 
 </body>
 </html>

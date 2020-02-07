@@ -1,3 +1,9 @@
 p {
 color: blue;
 }
+body {
+padding: 50px;
+}
+h1 {
+color: red;
+}

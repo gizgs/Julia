@@ -19,7 +19,7 @@ class Faktura(models.Model):
     kwota_netto = models.DecimalField(decimal_places=2, max_digits=10)
     vat = models.DecimalField(decimal_places=2, max_digits=10, choices=vaty)
     miejsce = models.CharField(choices=miejsca, max_length=30)
-    plik = models.ImageField()
+    plik = models.FileField()
 
     def __str__(self):
         return self.nazwa

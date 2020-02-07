@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'faktury',
     'mathfilters',
+    'bootstrapform',
 ]
 
 MIDDLEWARE = [
@@ -121,13 +122,15 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = ['statyczne']
+STATICFILES_DIRS = [
+    'statyczne'
+                    ]
 
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = 'moje_media'
 
-LOGIN_REDIRECT_URL = '/faktury/'
+LOGIN_REDIRECT_URL = '/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 

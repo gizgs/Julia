@@ -8,6 +8,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('faktury/', include('faktury.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('', main)
+    path('', main),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
