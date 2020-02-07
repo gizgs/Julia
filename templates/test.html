@@ -9,20 +9,23 @@
     <link rel="stylesheet" a href="{% static 'style.css' %}">
 </head>
 <body>
-<h1>To jest strona testowa</h1>
+<h1>Faktury:</h1>
+{% if user.is_authenticated%}
+     <p> Witaj {{user.get_username}} </p>
+{% endif%}
 <a href="{% url 'nowa_faktura' %}">Nowa faktura</a>
 <p>{{ text }}</p>
 <td>{{ kwota_brutto }}</td>
 <table border="">
-    <th bgcolor="green">Pierwsze Pole</th>
-    <th bgcolor="green">Drugie pole</th>
-    <th bgcolor="green">Trzecie Pole</th>
-    <th bgcolor="green">Czwarte Pole</th>
-    <th bgcolor="green">Piąte Pole</th>
-    <th bgcolor="green">Szóste Pole</th>
-    <th bgcolor="green">Siódme Pole</th>
-    <th bgcolor="green">Ósme Pole</th>
-    <th bgcolor="green">Dziewiąte Pole</th>
+    <th bgcolor="green">Nazwa faktury</th>
+    <th bgcolor="green">Numer Faktury</th>
+    <th bgcolor="green">Miejsce</th>
+    <th bgcolor="green">Data wystawienia</th>
+    <th bgcolor="green">Kwota netto</th>
+    <th bgcolor="green">Vat %</th>
+    <th bgcolor="green">Kwota Vat</th>
+    <th bgcolor="green">Kwota Brutto</th>
+    <th bgcolor="green">Plik z fakturą</th>
 {% for i in faktura %}
 <tr>
     <td>{{ i.nazwa }}</td>
@@ -31,6 +34,8 @@
     <td>{{ i.data_wystawienia }}</td>
     <td>{{ i.kwota_netto }}</td>
     <td>{{ i.vat }}</td>
+    <td>Kwota Vat</td>
+    <td>kwota brutto</td>
     <td>{{ i.plik }}</td>
     <td><a href="{% url 'edycja_faktury' i.id %}">Edycja</a></td>
     <td><a href="{% url 'usuwanie_faktury' i.id %}">Usuń</a> </td>
@@ -49,6 +54,7 @@
 </tr>
 </table>
 
+<button><a href="{% url 'logout' %}">Wyloguj się</a></button>
 
 
 </body>

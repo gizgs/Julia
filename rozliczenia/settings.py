@@ -125,3 +125,8 @@ STATICFILES_DIRS = ['statyczne']
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = 'moje_media'
+
+LOGIN_REDIRECT_URL = '/faktury/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
