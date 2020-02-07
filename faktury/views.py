@@ -15,9 +15,6 @@ def test(request):
     faktura = Faktura.objects.all()
     suma = Faktura.objects.all().aggregate(Sum('kwota_netto')).get('kwota_netto__sum', 0.00)
 
-
-
-
     return render(request, 'test.html', {'faktura': faktura, 'suma': suma,})
 @login_required
 def nowa_faktura(request):

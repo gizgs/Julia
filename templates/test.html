@@ -1,4 +1,5 @@
 {% load static %}
+{% load mathfilters %}
 
 <!DOCTYPE html>
 
@@ -34,7 +35,7 @@
     <td>{{ i.data_wystawienia }}</td>
     <td>{{ i.kwota_netto }}</td>
     <td>{{ i.vat }}</td>
-    <td>Kwota Vat</td>
+    <td>{{ i.vat|div:100 |mul:i.kwota_netto }}</td>
     <td>kwota brutto</td>
     <td>{{ i.plik }}</td>
     <td><a href="{% url 'edycja_faktury' i.id %}">Edycja</a></td>
