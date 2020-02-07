@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Zaloguj się</title>
 </head>
 <body>
    <form method="post" action="{% url 'login' %}">
@@ -21,7 +21,8 @@
     <input type="hidden" name="next" value="{{ next }}" />
 
   </form>
-       <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+
+       <p><a href="{% url 'password_reset' %}">Odzyskaj hasło</a></p>
 
 </body>
 </html>
