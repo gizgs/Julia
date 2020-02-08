@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'w1cmp$5%%!wx+fk)cnjqywumn(7267o9trmc))s(y(a3@d0&%^'
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
 
 
 # Application definition
@@ -121,9 +121,9 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
-STATICFILES_DIRS = [
-    'statyczne'
-                    ]
+#STATICFILES_DIRS = [
+   # 'statyczne'
+  #                  ]
 
 MEDIA_URL = '/media/'
 
