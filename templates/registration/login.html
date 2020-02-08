@@ -7,21 +7,26 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" a href="{% static 'style.css' %}">
     <link rel="stylesheet" a href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
+
 
 
     <title>Zaloguj się</title>
 </head>
 <body>
-<h1>TO</h1>
 
-<form method="post" action="{% url 'login' %}">
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+   <form method="post" action="{% url 'login' %}">
     <legend>Logowanie</legend>
     {% csrf_token %}
     {{ form|bootstrap }}
-    <div class="form-group">
-      <button type="submit" class="btn btn-primary">Zaloguj</button>
+    <div class="form-group"><button type="submit" class="btn btn-primary">Zaloguj  <i class="fas fa-sign-in-alt"> </i></button>
     </div>
 </form>
+  </div>
+</div>
 
 
        <p><a href="{% url 'password_reset' %}">Odzyskaj hasło</a></p>

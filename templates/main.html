@@ -12,56 +12,71 @@
     <link rel="stylesheet" a href="{% static 'style.css' %}">
 </head>
 <body>
-<h1>Faktury:</h1>
-{% if user.is_authenticated%}
-     <p> Witaj {{user.get_username}} </p>
-{% endif%}
-<a href="{% url 'nowa_faktura' %}">Nowa faktura</a>
-<p>{{ text }}</p>
-<td>{{ kwota_brutto }}</td>
-<table border="">
-    <th bgcolor="green">Nazwa faktury</th>
-    <th bgcolor="green">Numer Faktury</th>
-    <th bgcolor="green">Miejsce</th>
-    <th bgcolor="green">Data wystawienia</th>
-    <th bgcolor="green">Kwota netto</th>
-    <th bgcolor="green">Vat %</th>
-    <th bgcolor="green">Kwota Vat</th>
-    <th bgcolor="green">Kwota Brutto</th>
-    <th bgcolor="green">Plik z fakturą</th>
-    <th bgcolor="green">Opcje</th>
+
+<div class="jumbotron">
+  <h1 class="display-5">Witaj {{user.get_username}}</h1>
+  <p class="lead">
+      <a class="btn btn-primary btn-lg" href="{% url 'nowa_faktura' %}" role="button">Nowa faktura  <i class="fas fa-plus-circle"></i></a>
+      <a class="btn btn-primary btn-lg" href="{% url 'logout' %}" role="button">Wyloguj się  <i class="fas fa-sign-out-alt"></i></a>
+
+
+  </p>
+</div>
+
+<div class="jumbotron" >
+
+    <h1 class="display-5">Faktury użytkownika {{ user.get_username }} ze wszystkich miejsc </h1>
+
+
+    <table border="">
+
+        <td bgcolor="green">Nazwa faktury</td>
+        <td bgcolor="green">Numer Faktury</td>
+        <td bgcolor="green">Miejsce</td>
+        <td bgcolor="green">Data wystawienia</td>
+        <td bgcolor="green">Kwota netto</td>
+        <td bgcolor="green">Vat %</td>
+        <td bgcolor="green">Kwota Vat</td>
+        <td bgcolor="green">Kwota Brutto</td>
+        <td bgcolor="green">Plik z fakturą</td>
+        <td bgcolor="green">Opcje</td>
+
 {% for i in faktura %}
 <tr>
-    <td bgcolor="aqua">{{ i.nazwa }}</td>
-    <td bgcolor="aqua">{{ i.numer }}</td>
-    <td bgcolor="aqua">{{ i.miejsce }}</td>
-    <td bgcolor="aqua">{{ i.data_wystawienia }}</td>
-    <td bgcolor="aqua">{{ i.kwota_netto }}zł</td>
-    <td bgcolor="aqua">{{ i.vat|mul:100 |add:0 }}%</td>
-    <td bgcolor="aqua">{{ i.vat|mul:i.kwota_netto }}zł</td>
-    <td bgcolor="aqua">{{ i.vat|mul:i.kwota_netto |addition:i.kwota_netto}}zł</td>
-    <td bgcolor="aqua"><a href="{{ i.plik.url }}">{{ i.plik }}</a></td>
-    <td bgcolor="orange"><a href="{% url 'edycja_faktury' i.id %}">Edycja |</a><a href="{% url 'usuwanie_faktury' i.id %}"> Usuń</a> </td>
+    <td class="table-primary">{{ i.nazwa }}</td>
+    <td class="table-primary">{{ i.numer }}</td>
+    <td class="table-primary">{{ i.miejsce }}</td>
+    <td class="table-primary">{{ i.data_wystawienia }}</td>
+    <td class="table-primary">{{ i.kwota_netto }}zł</td>
+    <td class="table-primary">{{ i.vat|mul:100 |add:0 }}%</td>
+    <td class="table-primary">{{ i.vat|mul:i.kwota_netto }}zł</td>
+    <td class="table-primary">{{ i.vat|mul:i.kwota_netto |addition:i.kwota_netto}}zł</td>
+    <td class="table-primary"><a href="{{ i.plik.url }}">{{ i.plik }}</a></td>
+    <td class="table-warning"><a href="{% url 'edycja_faktury' i.pk %}"><i class="fas fa-edit"></i></a><a href="{% url 'usuwanie_faktury' i.pk %}"><i class="fas fa-trash-alt"></i></a> </td>
+
 </tr>
 
 {% endfor %}
 <tr>
-    <td bgcolor="yellow"></td>
-    <td bgcolor="yellow"></td>
-    <td bgcolor="yellow"></td>
-    <td bgcolor="yellow"></td>
+    <td class="table-secondary"></td>
+    <td class="table-secondary"></td>
+    <td class="table-secondary"></td>
+    <td class="table-secondary"></td>
     <td bgcolor="yellow">{{ sumaN }}</td>
-    <td bgcolor="yellow"></td>
-    <td bgcolor="yellow"></td>
-    <td bgcolor="yellow"></td>
-    <td bgcolor="yellow"></td>
-    <td bgcolor="yellow"></td>
+    <td class="table-secondary"></td>
+    <td class="table-secondary"></td>
+    <td class="table-secondary"></td>
+    <td class="table-secondary"></td>
+    <td class="table-secondary"></td>
 
 
 </tr>
 </table><br>
 
-<a href="{% url 'logout' %}"><input type="submit" value="Wyloguj" /></a>
+</div>
+
+
+
 
 </body>
 </html>

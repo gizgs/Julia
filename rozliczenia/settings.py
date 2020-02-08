@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'faktury',
     'mathfilters',
     'bootstrapform',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
