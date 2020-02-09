@@ -1,4 +1,5 @@
 {% load static %}
+{% load mathfilters %}
 
 <!DOCTYPE html>
 
@@ -17,6 +18,7 @@
   <p class="lead">
       <a class="btn btn-primary btn-lg" href="{% url 'nowa_faktura' %}" role="button">Nowa faktura  <i class="fas fa-plus-circle"></i></a>
       <a class="btn btn-primary btn-lg" href="{% url 'logout' %}" role="button">Wyloguj się  <i class="fas fa-sign-out-alt"></i></a>
+      <a class="btn btn-primary btn-lg" href="{% url 'nowe_miejsce' %}" role="button">Dodaj nowe miejsce <i class="fas fa-plus-circle"></i></a>
 
 
   </p>
