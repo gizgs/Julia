@@ -1,14 +1,8 @@
 from django.urls import path
-from .views import main
 from .views import nowa_faktura, edycja_faktury, usuwanie_faktury, nowe_miejsce
 
-from django.urls import include, path
-from rest_framework import routers
-from .views import UserViewSet, FakturaViewSet
 
-router = routers.DefaultRouter()
-router.register(r'users', UserViewSet)
-router.register(r'faktury', FakturaViewSet)
+
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
@@ -20,7 +14,5 @@ urlpatterns = [
     path('edycja/<int:id>/', edycja_faktury, name = 'edycja_faktury'),
     path('usuwanie/<int:id>/', usuwanie_faktury, name = 'usuwanie_faktury'),
     path('nowe_miejsce/', nowe_miejsce, name = 'nowe_miejsce'),
-    path('', include(router.urls)),
-
 
 ]

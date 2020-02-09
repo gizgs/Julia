@@ -5,26 +5,6 @@ from .forms import FakturaForm, MiejsceForm
 from django.contrib.auth.decorators import login_required
 
 from django.contrib.auth.models import User
-from rest_framework import viewsets
-from .serializers import UserSerializer, FakturaSerializer
-
-
-class UserViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows users to be viewed or edited.
-    """
-    queryset = User.objects.all().order_by('-date_joined')
-    serializer_class = UserSerializer
-
-class FakturaViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows users to be viewed or edited.
-    """
-    queryset = Faktura.objects.all()
-    serializer_class = FakturaSerializer
-
-
-
 
 # Create your views here.
 
