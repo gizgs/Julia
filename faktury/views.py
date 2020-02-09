@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Sum
 from  .models import Faktura
-from .forms import FakturaForm
+from .forms import FakturaForm, MiejsceForm
 from django.contrib.auth.decorators import login_required
 
 from django.contrib.auth.models import User
@@ -71,4 +71,14 @@ def usuwanie_faktury(request, id):
         return redirect(main)
     return render(request, 'potwierdz.html', {'faktura': faktura})
 
+
+@login_required
+def nowe_miejsce(request):
+
+    form = MiejsceForm(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        form.save()
+        return redirect(main)
+
+    return render(request, 'nowe_miejsce.html', {'form': form})
 
